@@ -1,0 +1,112 @@
+/* Grounds Up site: one small stylesheet. System fonts, no outside requests, no script.
+   The colors are theme B of the game: dark navy, the blue of the app icon, white text. */
+
+:root {
+  color-scheme: dark;
+  --bg: #0B0E13;
+  --page: #151921;
+  --card: #1E232C;
+  --well: #262C36;
+  --ink: #FFFFFF;
+  --ink-2: #AEB8C6;
+  --line: rgba(255, 255, 255, 0.10);
+  --tint: rgba(255, 255, 255, 0.06);
+  --accent: #1B6AD0;
+  --accent-lo: #0A52B4;
+  --accent-text: #71C1FC;
+  --accent-soft: rgba(18, 124, 245, 0.22);
+  --warn: #FFC266;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg) radial-gradient(820px 380px at 50% -140px, rgba(27, 106, 208, 0.32), rgba(27, 106, 208, 0) 70%) no-repeat;
+  color: var(--ink);
+  font: 17px/1.6 var(--font);
+  overflow-wrap: break-word;
+}
+
+.wrap { width: 100%; max-width: 44rem; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+.wrap.wide { max-width: 62rem; }
+
+.skip { position: absolute; left: -999px; top: 8px; z-index: 5; padding: 10px 14px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 700; }
+.skip:focus { left: 8px; }
+
+/* the top bar */
+.top { position: sticky; top: 0; z-index: 2; background: rgba(11, 14, 19, 0.86); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; min-height: 44px; color: var(--ink); font-weight: 800; font-size: 1.05rem; text-decoration: none; }
+.brand img { display: block; width: 32px; height: 32px; border-radius: 22.37%; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14); }
+.top nav { display: flex; gap: 2px; }
+.top nav a { padding: 10px 12px; border-radius: 10px; color: var(--ink-2); font-size: 0.95rem; font-weight: 600; text-decoration: none; }
+.top nav a:hover { color: var(--ink); background: var(--tint); }
+.top nav a[aria-current="page"] { color: var(--accent-text); background: var(--accent-soft); }
+
+/* the text */
+main { flex: 1 0 auto; padding-top: 28px; padding-bottom: 56px; }
+h1 { margin: 0 0 8px; font-size: clamp(1.9rem, 7.5vw, 2.6rem); line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
+h2 { margin: 2.2rem 0 0.5rem; font-size: 1.3rem; line-height: 1.3; font-weight: 700; }
+p, ul, ol { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0 0 0.5rem; }
+a { color: var(--accent-text); text-underline-offset: 3px; }
+a:hover { color: #A6D8FF; }
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; border-radius: 6px; }
+.meta { margin: 0 0 1.4rem; color: var(--ink-2); font-size: 0.95rem; }
+.lead { color: var(--ink-2); font-size: 1.1rem; }
+.callout { margin: 1.2rem 0 0; padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 14px; }
+.callout p:last-child { margin-bottom: 0; }
+
+/* the landing page */
+.hero { text-align: center; padding: 8px 0 4px; }
+.hero .icon { display: block; width: 120px; height: 120px; margin: 0 auto 18px; border-radius: 22.37%; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(27, 106, 208, 0.35); }
+.hero h1 { margin-bottom: 6px; }
+.hero .tag { margin: 0; color: var(--accent-text); font-size: 1.25rem; font-weight: 600; }
+.three { list-style: none; counter-reset: n; display: grid; gap: 12px; margin: 2rem 0 1.4rem; padding: 0; }
+.three li { counter-increment: n; position: relative; margin: 0; padding: 16px 16px 16px 62px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; font-size: 1.05rem; }
+.three li::before { content: counter(n); position: absolute; left: 16px; top: 16px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(160deg, var(--accent), var(--accent-lo)); color: #fff; font-weight: 800; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 1.4rem; padding: 0; list-style: none; }
+.chips li { margin: 0; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-text); font-size: 0.92rem; font-weight: 600; }
+.note { color: var(--ink-2); font-size: 0.98rem; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin: 1.6rem 0 1.2rem; }
+.btn { flex: 1 1 100%; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 12px; background: linear-gradient(160deg, var(--accent), var(--accent-lo)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 16px rgba(27, 106, 208, 0.4); color: #fff; font-weight: 700; text-decoration: none; }
+.btn:hover { color: #fff; filter: brightness(1.08); }
+.btn.quiet { background: var(--well); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* the markers that show a value is still to fill in (release/config.json) */
+.fillme { padding: 0 6px; border-radius: 6px; background: var(--warn); color: #1A1305; font-weight: 700; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* the foot */
+.foot { border-top: 1px solid var(--line); padding: 24px 0 36px; color: var(--ink-2); font-size: 0.92rem; }
+.foot p { margin: 0 0 0.6rem; }
+.foot .links { display: flex; flex-wrap: wrap; gap: 0 18px; }
+.foot .links a { display: inline-block; padding: 10px 0; }
+.foot a { color: var(--ink-2); }
+.foot a:hover { color: var(--ink); }
+
+@media (min-width: 720px) {
+  main { padding-top: 48px; }
+  .hero { padding-top: 12px; }
+  .hero .icon { width: 144px; height: 144px; }
+  .three { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .three li { padding: 64px 18px 20px; }
+  .three li::before { top: 18px; left: 18px; }
+  .btn { flex: 0 0 auto; min-width: 190px; }
+  .hero + .three + .chips { justify-content: center; }
+  main.wide .note { text-align: center; }
+  main.wide .btns { justify-content: center; }
+}
+
+@media print {
+  body { display: block; background: #fff; color: #111; font-size: 12pt; }
+  .top, .skip, .btns { display: none; }
+  a { color: #0A52B4; }
+  .callout { background: #fff; border-color: #999; }
+  .foot { color: #444; border-color: #999; }
+}
